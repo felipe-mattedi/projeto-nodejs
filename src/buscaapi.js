@@ -32,7 +32,7 @@ export const executa_busca_preco = async (origem, destino, data) => {
 
 
 export const executa_busca_empresa = async (empresa_procurada) => {
-  let dados = await axios.get("http://airlabs.com/api/v7/airlines?api_key=b6e2a93d-a7b4-407d-9003-a39aa8d4aac9").then(function(response) {
+  let dados = await axios.get("http://airlabs.co/api/v7/airlines?api_key=b6e2a93d-a7b4-407d-9003-a39aa8d4aac9").then(function(response) {
     return (response.data)})
     let dados_final = dados.response.filter(function(empresa){
       return (empresa.name.toLowerCase().search(empresa_procurada.toLowerCase()) != -1)})
@@ -40,7 +40,7 @@ export const executa_busca_empresa = async (empresa_procurada) => {
 
 
 export const executa_busca_cidade = async (cidade_procurada) => {
-  let dados = await axios.get("http://airlabs.com/api/v6/cities?api_key=b6e2a93d-a7b4-407d-9003-a39aa8d4aac9").then(function(response) {
+  let dados = await axios.get("http://airlabs.co/api/v6/cities?api_key=b6e2a93d-a7b4-407d-9003-a39aa8d4aac9").then(function(response) {
     return (response.data)})
     let dados_final = dados.response.filter(function(cidade){
       return (cidade.name.toLowerCase().search(cidade_procurada.toLowerCase()) != -1)})
