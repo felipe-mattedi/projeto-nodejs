@@ -12,8 +12,14 @@
   },
   "author": "Felipe Zanotelli Mattedi",
   "license": "ISC",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/felipe-mattedi/projeto-nodejs/issues"
   },
-  "homepage": "https://github.com/felipe-mattedi/projeto-nodejs#readme"
+  "homepage": "https://github.com/felipe-mattedi/projeto-nodejs#readme",
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4"
+  }
 }
