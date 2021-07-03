@@ -2,10 +2,12 @@
 import input from 'readline-sync';
 import { executa_busca_cidade, executa_busca_empresa, executa_busca_preco, executa_busca_voo } from './buscaapi.js'
 import { formata_tela, formata_tela_cidade, formata_tela_empresa, formata_tela_preco} from './formatadores.js'
+import  logger  from './logger.js'
 
 export const busca_empresa_codigo = async () => {
   let empresa = input.question(' DIGITE PARTE DO NOME DA EMPRESA: ')
     try{
+      logger.info('Vai consultar empresa aerea')
       let dados = await executa_busca_empresa(empresa)
       formata_tela_empresa(dados)
     }
@@ -18,6 +20,7 @@ export const busca_empresa_codigo = async () => {
   let cidade = input.question(' DIGITE PARTE DO NOME DA CIDADE: ')
 
   try{
+    logger.info('Vai consultar pelo nome da cidade')
     let dados = await executa_busca_cidade(cidade)
     formata_tela_cidade(dados)
   }
@@ -31,6 +34,7 @@ export const busca_empresa_codigo = async () => {
   let voo = input.question(' DIGITE O NUMERO DO VOO: ')
 
   try{
+    logger.info('Vai buscar informacoes do voo')
     let dados = await executa_busca_voo('','',(cia+voo))
     formata_tela(dados)
   }
@@ -43,6 +47,7 @@ export const busca_rota_codigo = async () => {
   let dep = input.question(' DIGITE O AEROPORTO DE PARTIDA: ')
   let arr = input.question(' DIGITE O AEROPORTO DE DESTINO: ')
   try{
+    logger.info('Vai consultar informações da rota')
     let dados = await executa_busca_voo(dep,arr)
     formata_tela(dados)
   }
@@ -54,6 +59,7 @@ export const busca_rota_codigo = async () => {
 export const busca_origem = async () => {
   let origem = input.question(' DIGITE O AEROPORTO DESEJADO: ')
   try{
+    logger.info('Vai consultar informações do aeroporto origem')
     let dados = await executa_busca_voo(origem,'','')
     formata_tela(dados)
   }
@@ -65,6 +71,7 @@ export const busca_origem = async () => {
 export const busca_destino = async () => {
   let destino = input.question(' DIGITE O AEROPORTO DESEJADO: ')
   try{
+    logger.info('Vai consultar informações aeroporto destino')
     let dados = await executa_busca_voo('', destino,'')
     formata_tela(dados)
   }
@@ -78,6 +85,7 @@ export const busca_preco_rota = async () => {
   let destino = input.question(' DIGITE O AEROPORTO DE DESTINO: ')
   let data =  input.question(' DIGITE A DATA NO FORMATO AAAA-MM-DD: ')
   try{
+    logger.info('Vai consultar preço da melhor rota')
     let dados = await executa_busca_preco(origem, destino, data)
     formata_tela_preco(dados)
   }
